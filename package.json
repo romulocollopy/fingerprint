@@ -1,0 +1,20 @@
+{
+  "name": "fingerprint",
+  "version": "1.0.0",
+  "description": "POC fingerprint",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fingerprint",
+    "device",
+    "recognition",
+    "2FA"
+  ],
+  "author": "Rômulo Collopy",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack-cli": "^3.3.1"
+  }
+}
