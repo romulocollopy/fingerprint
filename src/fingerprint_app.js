@@ -53,7 +53,7 @@ export default class App {
             console.log("IDENTITY_CHANGED");
             alert("IDENTITY_CHANGED");
         }
-        document.cookie = new Cookie({key: COOKIE_NAME, value: hash}).cookieString();
+        document.cookie = new Cookie({key: COOKIE_NAME, value: hash, expires: Infinity, maxAge: "Infinity"}).cookieString();
     }
 
     _fingerprintHasChanged(hash){
