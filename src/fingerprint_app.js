@@ -35,7 +35,7 @@ export default class App {
 
     _getCookie(){
         var cookies = (!document.cookie) ? [] : document.cookie.split(';');
-        cookies = _.map(cookies, c => this.cookieService.parse);
+        cookies = _.map(cookies, c => this.cookieService.parse(c));
         return _.find(cookies, c => c.key == COOKIE_NAME);
     }
 
@@ -53,11 +53,16 @@ export default class App {
             console.log("IDENTITY_CHANGED");
             alert("IDENTITY_CHANGED");
         }
-        document.cookie = new Cookie({key: COOKIE_NAME, value: hash, expires: Infinity, maxAge: "Infinity"}).cookieString();
+        document.cookie = new Cookie(
+            {key: COOKIE_NAME,
+             value: hash,
+             expires: Infinity,
+             maxAge: "Infinity"}
+        ).cookieString();
     }
 
     _fingerprintHasChanged(hash){
-        return (this.fingerprintCookie && hash !== this.fingerprintCookie) ? true : false ;
+        return (this.fingerprintCookie && hash !== this.fingerprintCookie.value) ? true : false ;
     }
 
     _preprocessor(key, value) {
